@@ -1,0 +1,39 @@
+<p>login works!</p>
+
+<!-- Button Modal Login -->
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#login">
+    <i class="bi bi-person-circle"></i>
+</button>
+
+
+<!-- Modal Login-->
+<div class="modal" id="login">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Entrar</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">
+                <!-- <form> -->
+                    <!-- Email -->
+                    <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input [(ngModel)]="user.email" name="user" id="email" type="text" class="form-control"  placeholder="Digite seu Email" aria-describedby="emailHelp">
+                    </div>
+                    <!-- Senha -->
+                    <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input [(ngModel)]="user.senha" id="senha" type="password" class="form-control" placeholder="Digite sua Senha">
+                    </div>
+                    <!-- Button Login -->
+                    <button type="submit" class="btn btn-primary btn-login" (click)="fazerLogin()">Entrar</button>
+                <!-- </form> -->
+                <div class="modal-footer">
+                    <button type="button" class="btn-fechar btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn-cadastrar btn btn-primary">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
