@@ -9,12 +9,16 @@ import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './user/login/login.component';
 import { AuthService } from './user/login/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecuperarComponent } from './user/recuperar/recuperar.component';
+import { CadastroComponent } from './user/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    RecuperarComponent,
+    CadastroComponent,
   ],
   imports: [
     FormsModule,
