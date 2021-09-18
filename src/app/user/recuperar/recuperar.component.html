@@ -1,1 +1,29 @@
-<p>recuperar works!</p>
+<!-- Ativação Modal -->
+
+<div class="text-info" data-bs-toggle="modal" data-bs-target="#recuperarSenha">Esqueci minha senha.</div>
+
+<!-- Modal -->
+<div class="modal fade" id="recuperarSenha" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Esqueceu sua senha?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text">Informe seu e-mail de Cadastro</div>
+        <form [formGroup]="formRecuperar" class="validation-recuperar">
+          <div class="form-floating mb-3">
+            <input formControlName="email" type="email" class="form-control" id="email" required>
+            <label for="floatingInput">E-mail</label>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="recuperar()">Enviar</button>
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
