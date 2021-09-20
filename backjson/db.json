@@ -1,0 +1,46 @@
+{
+  "user": [
+    {
+      "nome": "teste",
+      "email": "",
+      "senha": "",
+      "id": 1
+    },
+    {
+      "nome": "",
+      "email": "",
+      "senha": "",
+      "id": 2
+    },
+    {
+      "nome": "",
+      "email": "",
+      "senha": "",
+      "id": 3
+    },
+    {
+      "nome": null,
+      "email": null,
+      "senha": null,
+      "id": 4
+    },
+    {
+      "nome": null,
+      "email": null,
+      "senha": null,
+      "id": 5
+    },
+    {
+      "nome": null,
+      "email": null,
+      "senha": null,
+      "id": 6
+    },
+    {
+      "nome": null,
+      "email": null,
+      "senha": null,
+      "id": 7
+    }
+  ]
+}

@@ -1,8 +1,9 @@
+import { Router } from '@angular/router';
 
 
 
 import { Component, OnInit, NgModule } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, EmailValidator } from '@angular/forms';
 
 import { AuthService } from './auth.service';
 import { User } from './user';
@@ -18,36 +19,36 @@ import { Cadastro } from './cadastro';
 
 export class LoginComponent implements OnInit {
 
-  formCadastro : FormGroup;
+  // formCadastro : FormGroup;
   formLogin : FormGroup;
-  user: User = new User();
+  
+
+  user: User = {
+    nome: '',
+    email: '',
+    senha: ''
+  }
 
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.createFormCadastro(new Cadastro());
-    this.createFormLogin(new Cadastro());
+    // this.createFormCadastro(new User());
+    // this.createFormLogin(new User());
   }
 
-  createFormCadastro(cadastro: Cadastro) {
-    this.formCadastro = this.formBuilder.group({
-      nome: [cadastro.nome],
-      email: [cadastro.email],
-      senha: [cadastro.senha],
-      confirmarSenha: [cadastro.confirmarSenha],
-    })
-  }
 
-    createFormLogin(user: User){
-    this.formLogin = this.formBuilder.group({
-      email: [user.email],
-      senha: [user.senha],
-    })
-  }
+
+  //   createFormLogin(user: User){
+  //   this.formLogin = this.formBuilder.group({
+  //     email: [user.email],
+  //     senha: [user.senha],
+  //   })
+  // }
 
 
   fazerLogin() {
@@ -61,21 +62,20 @@ export class LoginComponent implements OnInit {
     }
     form.classList.add('was-validated');
     //Autenticação
-    this.authService.fazerLogin(this.user);
+    // this.authService.fazerLogin(this.user);
 
   }
-  realizarCadastro(){
-    // aqui você pode implementar a logica para fazer seu formulário salvar
-    console.log(this.formCadastro.value);
-    // Usar o método reset para limpar os controles na tela
-    this.formCadastro.reset(new Cadastro());
+  realizarCadastro(): void{
+    //Realizar Cadastro
+    this.authService.create(this.user).subscribe(() =>{     
+    })
     // Validação
-    var form = document.getElementsByClassName('validation-cadastro')[0] as HTMLFormElement;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    form.classList.add('was-validated');
+    // var form = document.getElementsByClassName('validation-cadastro')[0] as HTMLFormElement;
+    // if (form.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
+    // form.classList.add('was-validated');
 
 }
 
