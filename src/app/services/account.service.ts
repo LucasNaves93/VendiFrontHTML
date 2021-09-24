@@ -13,30 +13,33 @@ export class AccountService {
   // registerUrl = "http://localhost:3001/user"
   // loginUrl = "http://localhost:3001/user"
   registerUrl = "http://localhost:8080/user/cadastro"
-  loginUrl =  "http://localhost:8080/user/login"
+  loginUrl = "http://localhost:8080/user/login"
 
   private userSubject: BehaviorSubject<User>;
 
   constructor(
     private http: HttpClient,
-    private router : Router,
+    private router: Router,
   ) { }
 
 
 
-  register(user: User): Observable<User>{
+  register(user: User): Observable<User> {
     return this.http.post<User>(this.registerUrl, user);
+
+  }
+  login(email: string, password: string): Observable<User> {
+    return this.http.post<User>(this.loginUrl, { email, password })
+      .pipe(map(user => {
+        // armazena token
+        localStorage.setItem('user', JSON.stringify(user));
+        this.userSubject.next(user);
+        return user;
+      }));
+  }
+  logout(){
     
-}
-login(email: string, password: string): Observable<User> {
-  return this.http.post<User>(this.loginUrl, { email, password })
-  .pipe(map(user => {
-    // armazena token
-    localStorage.setItem('user', JSON.stringify(user));
-    this.userSubject.next(user);
-    return user;
-}));
-}
+  }
 
 }
 
